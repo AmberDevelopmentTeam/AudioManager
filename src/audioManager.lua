@@ -5,8 +5,10 @@ local MarketplaceService = game:GetService("MarketplaceService")
 local properties = {}
 local audios = {}
 
-if script:FindFirstChild("audioManager") then
-	Instance.new("Folder", "audioManager").Parent = SoundService
+if SoundService:FindFirstChild("audioManager") == nil then
+	local instance = Instance.new("Folder")
+	instance.Name = "audioManager"
+	instance.Parent = SoundService
 end
 
 local folder = SoundService:FindFirstChild("audioManager")
