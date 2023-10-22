@@ -75,6 +75,11 @@ function properties:Continue()
 		local audio: Sound = audios[self.soundId]
 		assert(audios[self.soundId], 'Please use "your_variable:Update() before pausing the audio')
 		audio:Play()
+		
+		if self.finishPosition < audio.TimeLength then
+			task.wait(self.finishPosition - audio.TimePosition)
+			audio:Stop()
+		end
 	end)
 end
 
@@ -84,6 +89,7 @@ function properties:Destroy()
 		assert(audios[self.soundId], 'Please use "your_variable:Update() before destroying the audio')
 		audios[self.soundId] = nil
 		audio:Destroy()
+		
 	end)
 end
 
