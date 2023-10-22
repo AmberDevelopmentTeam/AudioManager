@@ -6,7 +6,7 @@ local properties = {}
 local audios = {}
 
 if script:FindFirstChild("audioManager") then
-	script.audioManager.Parent = SoundService
+	Instance.new("Folder", "audioManager").Parent = SoundService
 end
 
 local folder = SoundService:FindFirstChild("audioManager")
