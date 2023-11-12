@@ -47,7 +47,7 @@ function properties:Play()
 		audio:Play()
 		
 		if self.finishPosition < audio.TimeLength then
-			task.wait(self.finishPosition)
+			task.wait(self.finishPosition - self.startPosition)
 			audio:Stop()
 		end
 	end)
